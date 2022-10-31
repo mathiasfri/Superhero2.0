@@ -9,6 +9,11 @@ public class Database
         superheroes.add(new Superhero(heroName, realName, superpower, age));
     }
 
+    public ArrayList<Superhero> searchSuperHeroes(String superheroSearch)
+    {
+
+    }
+
     public ArrayList<Superhero> getSuperheroes()
     {
         return superheroes;

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface
@@ -93,14 +94,15 @@ public class UserInterface
     public void caseListSuperheroes()
     {
         System.out.println("Liste over dine superhelte:\n");
-        db.listSuperHeroes();
+        listSuperHeroes();
     }
 
     public void caseSearchSuperhero()
     {
         System.out.println("Skriv dit søgekriterie for din superhelt: ");
         superheroSearch = sc.nextLine();
-        db.searchSuperHeroes();
+
+        controller.findSuperhero(superheroSearch);
     }
 
     public void caseEditSuperhero()
@@ -119,6 +121,7 @@ public class UserInterface
         db.removeSuperhero();
     }
 
+    // Read for scanner, to avoid errors
     public int readInteger() {
         while (!sc.hasNextInt()) {  //Loop
             String text = sc.nextLine();
@@ -133,5 +136,16 @@ public class UserInterface
             System.out.println(text + " er ikke et tal. Prøv igen.\n");
         }
         return sc.nextDouble();
+    }
+
+    // Metoder
+    public void listSuperHeroes()
+    {
+        int i = 1;
+
+        for (Superhero superhero : controller.getSuperheroes())
+        {
+            System.out.println(i++ + ": \n" + superhero);
+        }
     }
 }
