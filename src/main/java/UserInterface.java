@@ -101,9 +101,22 @@ public class UserInterface
     {
         System.out.println("Skriv dit søgekriterie for din superhelt: ");
         superheroSearch = sc.nextLine();
-
         controller.findSuperhero(superheroSearch);
+
+        ArrayList<Superhero> superheroes = controller.findSuperhero(superheroSearch);
+        if (superheroes.size() == 0) {
+            System.out.println("Din søgning gav intet resultat");
+        } else {
+
+            for (Superhero superhero : superheroes) {
+                System.out.println(superhero);
+                System.out.println();
+            }
+        }
     }
+
+
+
 
     public void caseEditSuperhero()
     {
