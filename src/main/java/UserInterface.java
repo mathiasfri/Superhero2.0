@@ -2,11 +2,16 @@ import java.util.Scanner;
 
 public class UserInterface
 {
-    static Scanner sc = new Scanner(System.in);
-    static Database db = new Database();
-    int menuInput;
-    static String superheroSearch;
-    static int removeNumber;
+    private Scanner sc;
+    private Controller controller;
+    private int menuInput;
+    private String superheroSearch;
+    private int removeNumber;
+    public UserInterface () {
+        sc = new Scanner(System.in);
+        controller = new Controller();
+
+    }
 
     public void startProgram()
     {
