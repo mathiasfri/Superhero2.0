@@ -113,4 +113,20 @@ public class UserInterface
         removeNumber = Integer.parseInt(sc.nextLine());
         db.removeSuperhero();
     }
+
+    public int readInteger() {
+        while (!sc.hasNextInt()) {  //Loop
+            String text = sc.nextLine();
+            System.out.println(text + " er ikke et heltal. Prøv igen.\n");
+        }
+        return sc.nextInt();
+    }
+
+    public double readDouble() {
+        while (!sc.hasNextDouble()) {  //Loop
+            String text = sc.nextLine();
+            System.out.println(text + " er ikke et tal. Prøv igen.\n");
+        }
+        return sc.nextDouble();
+    }
 }
