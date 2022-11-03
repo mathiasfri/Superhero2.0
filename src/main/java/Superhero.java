@@ -47,6 +47,16 @@ public class Superhero
         this.age = age;
     }
 
+    public double getStrength()
+    {
+        return strength;
+    }
+
+    public void setStrength(double strength)
+    {
+        this.strength = strength;
+    }
+
     @Override
     public String toString() {
         return

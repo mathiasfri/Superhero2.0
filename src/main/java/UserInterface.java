@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface
@@ -7,6 +8,7 @@ public class UserInterface
     private int menuInput;
     private String superheroSearch;
     private int removeNumber;
+
     public UserInterface () {
         sc = new Scanner(System.in);
         controller = new Controller();
@@ -127,7 +129,7 @@ public class UserInterface
     {
         System.out.println("Skriv superheltenavnet for den superhelt, som du vil redigere: ");
         superheroSearch = sc.nextLine();
-        controller.editSuperhero();
+        editSuperhero();
     }
 
     /*public void caseRemoveSuperhero() {
@@ -180,6 +182,93 @@ public class UserInterface
         for (Superhero superhero : controller.getSuperheroes())
         {
             System.out.println(i++ + ": \n" + superhero);
+        }
+    }
+
+    public void editSuperhero()
+    {
+        String superheroEdit = sc.nextLine();
+        ArrayList<Superhero> sortedArray = new ArrayList<>();
+
+        int i = 1;
+
+        for (Superhero superhero : controller.getSuperheroes())
+        {
+            if (superhero.getHeroName().contains(superheroEdit))
+            {
+                sortedArray.add(superhero);
+            }
+
+            else
+            {
+                System.out.println("Der findes ingen superhelte i databasen med dette navn.\n");
+            }
+        }
+
+        for (Superhero sa : sortedArray)
+        {
+            System.out.println(i++ + ": \n" + sa);
+        }
+
+        if (!sortedArray.isEmpty())
+        {
+            System.out.println("Skriv nummeret på den superhelt du vil redigere: \n");
+            String editNumber = Integer.toString(sc.nextInt());
+            Superhero superHeroEdit = sortedArray.get(Integer.parseInt(editNumber) - 1);
+
+            System.out.println("Redigerer følgende superhelt: \n\n" + superHeroEdit);
+            System.out.println("Skriv ny information og tryk ENTER. Hvis du ikke vil redigere, tryk ENTER.");
+            sc.nextLine();
+
+            boolean tryAgain = true;
+
+            while (tryAgain)
+            {
+                try
+                {
+                    System.out.print("Nyt superheltenavn: ");
+                    String newName = sc.nextLine();
+                    if (!newName.isEmpty())
+                    {
+                        superHeroEdit.setHeroName(newName);
+                    }
+
+                    System.out.print("Det nye rigtige navn på din superhelt: ");
+                    String newRealName = sc.nextLine();
+                    if (!newRealName.isEmpty())
+                    {
+                        superHeroEdit.setRealName(newRealName);
+                    }
+
+                    System.out.print("Ny superhelt superkraft: ");
+                    String newSuperpower = sc.nextLine();
+                    if (!newSuperpower.isEmpty())
+                    {
+                        superHeroEdit.setSuperpower(newSuperpower);
+                    }
+
+                    System.out.print("Nye alder på superhelt: ");
+                    String newAge = sc.nextLine();
+                    if (!newAge.isEmpty())
+                    {
+                        superHeroEdit.setAge(Integer.parseInt(newAge));
+                    }
+
+                    System.out.println("Nye styrke på din superhelt: ");
+                    String newStrength = sc.nextLine();
+                    if (!newStrength.isEmpty())
+                    {
+                        superHeroEdit.setStrength(Double.parseDouble(newStrength));
+                    }
+
+                    tryAgain = false;
+                    System.out.println("Redigering gennemført.\n");
+                }
+                catch (Exception e)
+                {
+                    System.out.println("Du fik indtastet en forkert variabel. Start venligst forfra.\n");
+                }
+            }
         }
     }
 }
