@@ -13,8 +13,13 @@ public class Controller
         return database.getSuperheroes();
     }
 
-    public ArrayList<Superhero> findSuperhero(String supeheroSearch)
-    {
-        return database.searchSuperHeroes(supeheroSearch);
+    public void addSuperhero(String heroName, String realName, String superpower, int age, double strength){
+        database.addSuperhero(heroName, realName, superpower, age, strength);
     }
+    public Superhero findSuperhero(String superheroSearch)
+    {
+        return database.searchSuperHeroes(superheroSearch);
+    }
+
+
 }
