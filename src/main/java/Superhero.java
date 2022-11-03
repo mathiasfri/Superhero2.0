@@ -4,13 +4,15 @@ public class Superhero
     private String realName;
     private String superpower;
     private int age;
+    private double strength;
 
-    public Superhero(String heroName, String realName, String superpower, int age)
+    public Superhero(String heroName, String realName, String superpower, int age, double strength)
     {
         this.heroName = heroName;
         this.realName = realName;
         this.superpower = superpower;
         this.age = age;
+        this.strength = strength;
     }
 
     public String getHeroName(){

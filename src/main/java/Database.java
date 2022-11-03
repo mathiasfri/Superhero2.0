@@ -4,9 +4,9 @@ public class Database
 {
     private ArrayList<Superhero> superheroes = new ArrayList<>();
 
-    public void addSuperhero(String heroName, String realName, String superpower, int age)
+    public void addSuperhero(String heroName, String realName, String superpower, int age, double strength)
     {
-        superheroes.add(new Superhero(heroName, realName, superpower, age));
+        superheroes.add(new Superhero(heroName, realName, superpower, age,strength));
     }
 
     public ArrayList<Superhero> searchSuperHeroes(String superheroSearch)
