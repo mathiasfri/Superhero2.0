@@ -1,24 +1,20 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class UserInterface
-{
+public class UserInterface {
     private Scanner sc;
     private Controller controller;
     private int menuInput;
     private String superheroSearch;
-    private int removeNumber;
 
-    public UserInterface () {
+    public UserInterface() {
         sc = new Scanner(System.in);
         controller = new Controller();
 
     }
 
-    public void startProgram()
-    {
-        while(menuInput != 9)
-        {
+    public void startProgram() {
+        while (menuInput != 9) {
             System.out.println("---------------------------------------------------");
             System.out.println("Velkommen til din SuperHelte database!");
             System.out.println("Menu - Vælg en valgmulighed");
@@ -59,16 +55,13 @@ public class UserInterface
                         System.out.print("Du har nu afsluttet. Farvel");
                         System.exit(0);
                 }
-            }
-            catch(Exception e)
-            {
+            } catch (Exception e) {
                 System.out.println("Du har fået indtastet en forkert variabel. Prøv venligst igen.");
             }
         }
     }
 
-    public void caseCreateSuperhero()
-    {
+    public void caseCreateSuperhero() {
         boolean tryAgain = true;
         while (tryAgain) {
             try {
@@ -95,13 +88,11 @@ public class UserInterface
         }
     }
 
-    public void caseListSuperheroes()
-    {
+    public void caseListSuperheroes() {
         System.out.println("Liste over dine superhelte:\n");
         listSuperHeroes();
     }
 
-    //TODO Hvilken search vil i bruge?
     public void caseSearchSuperhero() {
         System.out.println("Skriv dit søgekriterie for din superhelt: ");
         superheroSearch = sc.nextLine();
@@ -110,54 +101,35 @@ public class UserInterface
         System.out.println("Din superhelt er fundet i databasen: ");
         if (værdi == null) {
             System.out.println("Superhelten findes ikke i databasen");
-            }
-        /*//ArrayList<Superhero> superheroes = controller.findSuperhero(superheroSearch);
-        for (ArrayList<Superhero> superheroes = controller.findSuperhero(superheroSearch)) {
-            if (superheroes.size() == 0) {
-                System.out.println("Din søgning gav intet resultat");
-            } else {
-
-                for (Superhero superhero : superheroes) {
-                    System.out.println(superhero);
-                    System.out.println();
-                }
-            }*/
         }
+    }
 
-    //TODO Indsæt EditSuperhero metode
-    public void caseEditSuperhero()
-    {
+    public void caseEditSuperhero() {
         System.out.println("Skriv superheltenavnet for den superhelt, som du vil redigere: ");
         superheroSearch = sc.nextLine();
         editSuperhero();
     }
 
-    /*public void caseRemoveSuperhero() {
-        System.out.println("Fjern en superhelt fra din database: \n");
-        controller.getSuperheroes();
-        System.out.print("Skriv nummeret på den superhelt, som du gerne vil fjerne fra databasen: ");
-        removeNumber = Integer.parseInt(sc.nextLine());
-    }*/
-        public void caseRemoveSuperhero() {
-            System.out.println("\tSøg efter superhelt du vil SLETTE: ");
-            String søgeNavn = sc.nextLine();
+    public void caseRemoveSuperhero() {
+        System.out.println("\tSøg efter superhelt du vil SLETTE: ");
+        String søgeNavn = sc.nextLine();
 
-            for (int i = 0; i < controller.getSuperheroes().size(); i++) {
-                System.out.println(i + 1 + ":\n" + controller.getSuperheroes().get(i) + "\n");
-            }
-
-            if (søgeNavn != null) {
-                System.out.println("\t Vi har fundet din superhelt: \n"
-                        + søgeNavn);
-            } else if (søgeNavn == null) {
-                System.out.println("\tKunne ikke finde superhelten. \n");
-            }
-
-            System.out.println("\tVil du slette denne superhero? Indtast ja / nej.");
-            String svar = sc.nextLine();
+        for (int i = 0; i < controller.getSuperheroes().size(); i++) {
+            System.out.println(i + 1 + ":\n" + controller.getSuperheroes().get(i) + "\n");
         }
 
-        // Read for scanner, to avoid errors
+        if (søgeNavn != null) {
+            System.out.println("\t Vi har fundet din superhelt: \n"
+                    + søgeNavn);
+        } else if (søgeNavn == null) {
+            System.out.println("\tKunne ikke finde superhelten. \n");
+        }
+
+        System.out.println("\tVil du slette denne superhero? Indtast ja / nej.");
+        String svar = sc.nextLine();
+    }
+
+    // Read for scanner, to avoid errors
     public int readInteger() {
         while (!sc.hasNextInt()) {  //Loop
             String text = sc.nextLine();
@@ -175,43 +147,33 @@ public class UserInterface
     }
 
     // Metoder
-    public void listSuperHeroes()
-    {
+    public void listSuperHeroes() {
         int i = 1;
 
-        for (Superhero superhero : controller.getSuperheroes())
-        {
+        for (Superhero superhero : controller.getSuperheroes()) {
             System.out.println(i++ + ": \n" + superhero);
         }
     }
 
-    public void editSuperhero()
-    {
+    public void editSuperhero() {
         String superheroEdit = sc.nextLine();
         ArrayList<Superhero> sortedArray = new ArrayList<>();
 
         int i = 1;
 
-        for (Superhero superhero : controller.getSuperheroes())
-        {
-            if (superhero.getHeroName().contains(superheroEdit))
-            {
+        for (Superhero superhero : controller.getSuperheroes()) {
+            if (superhero.getHeroName().contains(superheroEdit)) {
                 sortedArray.add(superhero);
-            }
-
-            else
-            {
+            } else {
                 System.out.println("Der findes ingen superhelte i databasen med dette navn.\n");
             }
         }
 
-        for (Superhero sa : sortedArray)
-        {
+        for (Superhero sa : sortedArray) {
             System.out.println(i++ + ": \n" + sa);
         }
 
-        if (!sortedArray.isEmpty())
-        {
+        if (!sortedArray.isEmpty()) {
             System.out.println("Skriv nummeret på den superhelt du vil redigere: \n");
             String editNumber = Integer.toString(sc.nextInt());
             Superhero superHeroEdit = sortedArray.get(Integer.parseInt(editNumber) - 1);
@@ -222,50 +184,41 @@ public class UserInterface
 
             boolean tryAgain = true;
 
-            while (tryAgain)
-            {
-                try
-                {
+            while (tryAgain) {
+                try {
                     System.out.print("Nyt superheltenavn: ");
                     String newName = sc.nextLine();
-                    if (!newName.isEmpty())
-                    {
+                    if (!newName.isEmpty()) {
                         superHeroEdit.setHeroName(newName);
                     }
 
                     System.out.print("Det nye rigtige navn på din superhelt: ");
                     String newRealName = sc.nextLine();
-                    if (!newRealName.isEmpty())
-                    {
+                    if (!newRealName.isEmpty()) {
                         superHeroEdit.setRealName(newRealName);
                     }
 
                     System.out.print("Ny superhelt superkraft: ");
                     String newSuperpower = sc.nextLine();
-                    if (!newSuperpower.isEmpty())
-                    {
+                    if (!newSuperpower.isEmpty()) {
                         superHeroEdit.setSuperpower(newSuperpower);
                     }
 
                     System.out.print("Nye alder på superhelt: ");
                     String newAge = sc.nextLine();
-                    if (!newAge.isEmpty())
-                    {
+                    if (!newAge.isEmpty()) {
                         superHeroEdit.setAge(Integer.parseInt(newAge));
                     }
 
                     System.out.println("Nye styrke på din superhelt: ");
                     String newStrength = sc.nextLine();
-                    if (!newStrength.isEmpty())
-                    {
+                    if (!newStrength.isEmpty()) {
                         superHeroEdit.setStrength(Double.parseDouble(newStrength));
                     }
 
                     tryAgain = false;
                     System.out.println("Redigering gennemført.\n");
-                }
-                catch (Exception e)
-                {
+                } catch (Exception e) {
                     System.out.println("Du fik indtastet en forkert variabel. Start venligst forfra.\n");
                 }
             }
