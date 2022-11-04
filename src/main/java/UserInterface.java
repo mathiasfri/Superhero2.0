@@ -31,26 +31,16 @@ public class UserInterface {
                 menuInput = Integer.parseInt(sc.nextLine());
 
                 switch (menuInput) {
-                    case 1:
-                        caseCreateSuperhero();
+                    case 1: caseCreateSuperhero();
                         break;
-
-                    case 2:
-                        caseListSuperheroes();
+                    case 2: caseListSuperheroes();
                         break;
-
-                    case 3:
-                        caseSearchSuperhero();
+                    case 3: caseSearchSuperhero();
                         break;
-
-                    case 4:
-                        caseEditSuperhero();
+                    case 4: caseEditSuperhero();
                         break;
-
-                    case 5:
-                        caseRemoveSuperhero();
+                    case 5: caseRemoveSuperhero();
                         break;
-
                     case 9:
                         System.out.print("Du har nu afsluttet. Farvel");
                         System.exit(0);
@@ -62,30 +52,22 @@ public class UserInterface {
     }
 
     public void caseCreateSuperhero() {
-        boolean tryAgain = true;
-        while (tryAgain) {
-            try {
-                System.out.println("Hvad skal din superhelts heltenavn være?");
-                String heroName = sc.nextLine();
+        System.out.println("Hvad skal din superhelts heltenavn være?");
+        String heroName = readString();
 
-                System.out.println("Hvad er din superhelts rigtige navn?");
-                String realName = sc.nextLine();
+        System.out.println("Hvad er din superhelts rigtige navn?");
+        String realName = readString();
 
-                System.out.println("Hvad er din superhelts superkraft?");
-                String superpower = sc.nextLine();
+        System.out.println("Hvad er din superhelts superkraft?");
+        String superpower = readString();
 
-                System.out.println("Hvad er din superhelts alder?");
-                int age = Integer.parseInt(sc.nextLine());
+        System.out.println("Hvad er din superhelts alder?");
+        int age = readInteger();
 
-                System.out.println("Hvor stærk er din superhelt?");
-                double strength = Integer.parseInt(sc.nextLine());
+        System.out.println("Hvor stærk er din superhelt?");
+        double strength = readDouble();
 
-                controller.addSuperhero(heroName, realName, superpower, age, strength);
-                tryAgain = false;
-            } catch (Exception e) {
-                System.out.println("Du fik indtastet en forkert variabel. Start venligst forfra.\n");
-            }
-        }
+        controller.addSuperhero(heroName, realName, superpower, age, strength);
     }
 
     public void caseListSuperheroes() {
@@ -134,14 +116,25 @@ public class UserInterface {
         while (!sc.hasNextInt()) {  //Loop
             String text = sc.nextLine();
             System.out.println(text + " er ikke et heltal. Prøv igen.\n");
+            sc.next();
         }
         return sc.nextInt();
+    }
+
+    public String readString() {
+        while (!sc.hasNextLine()) {  //Loop
+            String text = sc.nextLine();
+            System.out.println(text + " er ikke et heltal. Prøv igen.\n");
+            sc.next();
+        }
+        return sc.nextLine();
     }
 
     public double readDouble() {
         while (!sc.hasNextDouble()) {  //Loop
             String text = sc.nextLine();
             System.out.println(text + " er ikke et tal. Prøv igen.\n");
+            sc.next();
         }
         return sc.nextDouble();
     }
