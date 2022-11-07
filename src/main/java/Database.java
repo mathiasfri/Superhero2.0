@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class Database
 {
-    ArrayList<Superhero> superheroes = new ArrayList<>();
+    private ArrayList<Superhero> superheroes = new ArrayList<>();
 
     public void addSuperhero(String heroName, String realName, String superpower, int age, double strength)
     {
