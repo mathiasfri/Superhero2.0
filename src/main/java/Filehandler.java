@@ -6,21 +6,45 @@ import java.util.Scanner;
 
 public class Filehandler {
     private File file = new File("Superhero.csv");
+    Boolean duplicate;
 
     public void saveToFile(ArrayList<Superhero> superheroes) {
         try{
-            PrintStream printStream = new PrintStream(file);
-            for (Superhero superhero: superheroes){
-                printStream.println(superhero.getHeroName() +',' +
-                        superhero.getRealName() + ',' +
-                        superhero.getSuperpower() + ',' +
-                        superhero.getAge() + ',' +
-                        superhero.getStrength());
+            if (duplicate = true) {
+                inputAlreadyThere(superheroes);
+                System.out.println("This already exists in the database");
+
             }
-            printStream.close();
+            else {
+                for (Superhero superhero : superheroes) {
+                    PrintStream printStream = new PrintStream(file);
+                    printStream.println(superhero.getHeroName() + ',' +
+                            superhero.getRealName() + ',' +
+                            superhero.getSuperpower() + ',' +
+                            superhero.getAge() + ',' +
+                            superhero.getStrength());
+                    printStream.close();
+                }
+
+            }
         }catch(FileNotFoundException e){
         }
     }
+public void inputAlreadyThere(ArrayList<Superhero> superheroes) {
+        Scanner sc = new Scanner(System.in);
+
+        for(Superhero superhero: superheroes) {
+            String searchWord;
+            searchWord = sc.nextLine();
+
+            if (superhero.getHeroName().contains(searchWord) || superhero.getRealName().contains(searchWord)
+                    || superhero.getSuperpower().contains(searchWord)) {
+            }
+
+
+        }
+
+}
 
 
     public ArrayList<Superhero> loadFile(){
