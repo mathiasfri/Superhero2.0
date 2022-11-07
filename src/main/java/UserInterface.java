@@ -45,6 +45,8 @@ public class UserInterface {
                         break;
                     case 6: caseSaveSuperhero();
                         break;
+                    case 7: caseloadFile();
+                        break;
                     case 9:
                         System.out.print("Du har nu afsluttet. Farvel.");
                         System.exit(0);
@@ -151,8 +153,12 @@ public class UserInterface {
             System.out.println(i++ + ": \n" + superhero);
         }
     }
-    private void caseSaveSuperhero() {
+    public void caseSaveSuperhero() {
         controller.saveToFile();
+    }
+
+    public void caseloadFile() {
+        controller.loadFile();
     }
 
     public void editSuperhero() {
