@@ -27,6 +27,7 @@ public class UserInterface {
                     5. Fjern superhelt fra database
                     6. Gem Superhelt
                     7. Sorter superhelte efter valgt kriterie
+                    8. Indlæs fil (indlæs superheroes)
                     9. Afslut
                     """);
 
@@ -34,20 +35,29 @@ public class UserInterface {
                 menuInput = Integer.parseInt(sc.nextLine());
 
                 switch (menuInput) {
-                    case 1: caseCreateSuperhero();
+                    case 1:
+                        caseCreateSuperhero();
                         break;
-                    case 2: caseListSuperheroes();
+                    case 2:
+                        caseListSuperheroes();
                         break;
-                    case 3: caseSearchSuperhero();
+                    case 3:
+                        caseSearchSuperhero();
                         break;
-                    case 4: caseEditSuperhero();
+                    case 4:
+                        caseEditSuperhero();
                         break;
-                    case 5: caseRemoveSuperhero();
+                    case 5:
+                        caseRemoveSuperhero();
                         break;
-                    case 6: caseSaveSuperhero();
+                    case 6:
+                        caseSaveSuperhero();
                         break;
                     case 7:
                         caseSortSuperheroes();
+                        break;
+                    case 8:
+                        caseLoadFile();
                         break;
                     case 9:
                         System.out.print("Du har nu afsluttet. Farvel");
@@ -142,29 +152,39 @@ public class UserInterface {
         {
             case 1:
                 controller.sortByRealName();
+                System.out.println("Superheroes sorteret efter rigtige navn");
                 listSuperHeroes();
                 break;
 
             case 2:
                 controller.sortByHeroName();
+                System.out.println("Superheroes sorteret efter superhelte-navn");
                 listSuperHeroes();
                 break;
 
             case 3:
                 controller.sortByAge();
+                System.out.println("Superheroes sorteret efter alder");
                 listSuperHeroes();
                 break;
 
             case 4:
                 controller.sortBySuperpowers();
+                System.out.println("Superheroes sorteret efter superkræfter");
                 listSuperHeroes();
                 break;
 
             case 5:
                 controller.sortByStrength();
+                System.out.println("Superheroes sorteret efter styrke");
                 listSuperHeroes();
                 break;
         }
+    }
+
+    public void caseLoadFile()
+    {
+        controller.loadFile();
     }
 
     // Read for scanner, to avoid errors

@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69092e23-32c9-45c9-892f-c1d15be01b99" name="Changes" comment="Edit superhero inkluderet">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AgeComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HeroNameComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RealNameComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StrengthComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SuperpowerComparator.java" afterDir="false" />
+    <list default="true" id="69092e23-32c9-45c9-892f-c1d15be01b99" name="Changes" comment="Sortering metoder tilføjet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +51,7 @@
       <workItem from="1667208360907" duration="17000" />
       <workItem from="1667208384037" duration="1231000" />
       <workItem from="1667376123309" duration="4135000" />
-      <workItem from="1667810819046" duration="1214000" />
+      <workItem from="1667810819046" duration="2251000" />
     </task>
     <task id="LOCAL-00001" summary="Hjælpe - metoder til indlæsning af integer og double">
       <created>1667212125003</created>
@@ -74,7 +67,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667215477971</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Sortering metoder tilføjet">
+      <created>1667812076162</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667812076162</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,7 +94,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Hjælpe - metoder til indlæsning af integer og double" />
     <MESSAGE value="findHero sat i database + interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="findHero sat i database + interface" />
+    <MESSAGE value="Sortering metoder tilføjet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sortering metoder tilføjet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
