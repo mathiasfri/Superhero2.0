@@ -24,7 +24,7 @@ public class Superhero
     }
 
     public String getRealName(){
-        return heroName;
+        return realName;
     }
 
     public void setRealName(String realName){

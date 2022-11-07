@@ -24,6 +24,7 @@ public class UserInterface {
                     3. Søg efter superhelt
                     4. Rediger superhelt
                     5. Fjern superhelt fra database
+                    6. Gem Superhelt
                     9. Afslut
                     """);
 
@@ -41,6 +42,8 @@ public class UserInterface {
                         break;
                     case 5: caseRemoveSuperhero();
                         break;
+                    case 6: caseSaveSuperhero();
+                        break;
                     case 9:
                         System.out.print("Du har nu afsluttet. Farvel");
                         System.exit(0);
@@ -50,6 +53,8 @@ public class UserInterface {
             }
         }
     }
+
+
 
     public void caseCreateSuperhero() {
         System.out.println("Hvad skal din superhelts heltenavn være?");
@@ -147,6 +152,9 @@ public class UserInterface {
             System.out.println(i++ + ": \n" + superhero);
         }
     }
+    private void caseSaveSuperhero() {
+        controller.saveToFile();
+    }
 
     public void editSuperhero() {
         String superheroEdit = sc.nextLine();
@@ -214,7 +222,9 @@ public class UserInterface {
                 } catch (Exception e) {
                     System.out.println("Du fik indtastet en forkert variabel. Start venligst forfra.\n");
                 }
+
             }
         }
+
     }
 }

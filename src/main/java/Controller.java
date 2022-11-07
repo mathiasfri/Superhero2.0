@@ -3,8 +3,10 @@ import java.util.ArrayList;
 public class Controller
 {
     private Database database;
+    private Filehandler filehandler;
     public Controller()
     {
+        filehandler = new Filehandler();
         database = new Database();
     }
 
@@ -21,5 +23,7 @@ public class Controller
         return database.searchSuperHeroes(superheroSearch);
     }
 
-
+    public void saveToFile() {
+        filehandler.saveToFile(getSuperheroes());
+    }
 }
