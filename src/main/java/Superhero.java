@@ -59,10 +59,10 @@ public class Superhero
 
     @Override
     public String toString() {
-        return
-                "Superheltenavn: " + heroName + "\n" +
+        return "Superheltenavn: " + heroName + "\n" +
                         "Virkelige navn: " + realName + "\n" +
                         "Superkraft: " + superpower + "\n" +
-                        "Alder: " + age + "\n";
+                        "Alder: " + age + "\n" +
+                        "Styrke: " + strength + "\n";
     }
 }

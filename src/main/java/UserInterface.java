@@ -10,10 +10,10 @@ public class UserInterface {
     public UserInterface() {
         sc = new Scanner(System.in);
         controller = new Controller();
-
     }
 
     public void startProgram() {
+        controller.loadFile();
         while (menuInput != 9) {
             System.out.println("---------------------------------------------------");
             System.out.println("Velkommen til din SuperHelte database!");
@@ -24,8 +24,7 @@ public class UserInterface {
                     3. Søg efter superhelt
                     4. Rediger superhelt
                     5. Fjern superhelt fra database
-                    6. Gem Superhelt
-                    7. Load Superhelt
+                    6. Sorter superhelt
                     9. Afslut
                     """);
 
@@ -43,14 +42,11 @@ public class UserInterface {
                         break;
                     case 5: caseRemoveSuperhero();
                         break;
-                    case 6: caseSaveSuperhero();
-                        break;
-                    case 7: caseloadFile();
-                        break;
-                    case 8:
+                    case 6:
                         caseSortSuperheroes();
                         break;
                     case 9:
+                        controller.saveToFile();
                         System.out.print("Du har nu afsluttet. Farvel.");
                         System.exit(0);
                 }
@@ -112,7 +108,7 @@ public class UserInterface {
         if (søgeNavn != null) {
             System.out.println("\t Vi har fundet din superhelt: \n"
                     + søgeNavn);
-        } else if (søgeNavn == null) {
+        } else {
             System.out.println("\tKunne ikke finde superhelten. \n");
         }
 
@@ -173,12 +169,9 @@ public class UserInterface {
     }
 
     public String readString() {
-        while (!sc.hasNextLine()) {  //Loop
-            String text = sc.nextLine();
-            System.out.println(text + " er ikke et heltal. Prøv igen.\n");
-            sc.next();
-        }
-        return sc.nextLine();
+        String input = sc.next();
+        sc.nextLine();
+        return input;
     }
 
     public double readDouble() {
@@ -192,10 +185,10 @@ public class UserInterface {
 
     // Metoder
     public void listSuperHeroes() {
-        int i = 1;
+
 
         for (Superhero superhero : controller.getSuperheroes()) {
-            System.out.println(i++ + ": \n" + superhero);
+            System.out.println(superhero);
         }
     }
 
@@ -212,9 +205,6 @@ public class UserInterface {
             }
     }
 
-    public void caseloadFile() {
-        controller.loadFile();
-    }
 
     public void editSuperhero() {
         String superheroEdit = sc.nextLine();
