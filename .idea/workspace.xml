@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69092e23-32c9-45c9-892f-c1d15be01b99" name="Changes" comment="Sortering metoder tilføjet">
+    <list default="true" id="69092e23-32c9-45c9-892f-c1d15be01b99" name="Changes" comment="Tilføjet mulighed for at loade filen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +50,7 @@
       <workItem from="1667208360907" duration="17000" />
       <workItem from="1667208384037" duration="1231000" />
       <workItem from="1667376123309" duration="4135000" />
-      <workItem from="1667810819046" duration="2251000" />
+      <workItem from="1667810819046" duration="3940000" />
     </task>
     <task id="LOCAL-00001" summary="Hjælpe - metoder til indlæsning af integer og double">
       <created>1667212125003</created>
@@ -74,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667812076162</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Tilføjet mulighed for at loade filen">
+      <created>1667813278175</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667813278175</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,14 +101,15 @@
     <MESSAGE value="Hjælpe - metoder til indlæsning af integer og double" />
     <MESSAGE value="findHero sat i database + interface" />
     <MESSAGE value="Sortering metoder tilføjet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sortering metoder tilføjet" />
+    <MESSAGE value="Tilføjet mulighed for at loade filen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tilføjet mulighed for at loade filen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/UserInterface.java</url>
-          <line>128</line>
+          <line>138</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

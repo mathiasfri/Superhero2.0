@@ -60,7 +60,7 @@ public class UserInterface {
                         caseLoadFile();
                         break;
                     case 9:
-                        System.out.print("Du har nu afsluttet. Farvel");
+                        System.out.print("Du har nu afsluttet. Farvel.");
                         System.exit(0);
                 }
             } catch (Exception e) {
@@ -68,8 +68,6 @@ public class UserInterface {
             }
         }
     }
-
-
 
     public void caseCreateSuperhero() {
         System.out.println("Hvad skal din superhelts heltenavn være?");
