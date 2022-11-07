@@ -14,7 +14,8 @@ public class UserInterface {
 
     public void startProgram() {
         controller.loadFile();
-        while (menuInput != 9) {
+        boolean isRunning = true;
+        while (isRunning) {
             System.out.println("---------------------------------------------------");
             System.out.println("Velkommen til din SuperHelte database!");
             System.out.println("Menu - Vælg en valgmulighed");
@@ -29,9 +30,7 @@ public class UserInterface {
                     """);
 
             try {
-                menuInput = readInteger();
-
-                switch (menuInput) {
+                switch (readInteger()) {
                     case 1: caseCreateSuperhero();
                         break;
                     case 2: caseListSuperheroes();
@@ -48,7 +47,7 @@ public class UserInterface {
                     case 9:
                         controller.saveToFile();
                         System.out.print("Du har nu afsluttet. Farvel.");
-                        System.exit(0);
+                        isRunning = false;
                 }
             } catch (Exception e) {
                 System.out.println("Du har fået indtastet en forkert variabel. Prøv venligst igen.");
