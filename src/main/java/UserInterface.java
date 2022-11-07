@@ -30,7 +30,7 @@ public class UserInterface {
                     """);
 
             try {
-                menuInput = Integer.parseInt(sc.nextLine());
+                menuInput = readInteger();
 
                 switch (menuInput) {
                     case 1: caseCreateSuperhero();
@@ -46,6 +46,9 @@ public class UserInterface {
                     case 6: caseSaveSuperhero();
                         break;
                     case 7: caseloadFile();
+                        break;
+                    case 8:
+                        caseSortSuperheroes();
                         break;
                     case 9:
                         System.out.print("Du har nu afsluttet. Farvel.");
@@ -115,6 +118,48 @@ public class UserInterface {
 
         System.out.println("\tVil du slette denne superhero? Indtast ja / nej.");
         String svar = sc.nextLine();
+    }
+
+    public void caseSortSuperheroes()
+    {
+        System.out.println("Hvilken kriterie vil du gerne sortere efter?");
+        System.out.println("""
+                1. Rigtige navn
+                2. Superhelte navn
+                3. Alder
+                4. Superpower
+                5. Styrke
+                """);
+
+        int sortChoice = readInteger();
+
+        switch (sortChoice)
+        {
+            case 1:
+                controller.sortByRealName();
+                listSuperHeroes();
+                break;
+
+            case 2:
+                controller.sortByHeroName();
+                listSuperHeroes();
+                break;
+
+            case 3:
+                controller.sortByAge();
+                listSuperHeroes();
+                break;
+
+            case 4:
+                controller.sortBySuperpowers();
+                listSuperHeroes();
+                break;
+
+            case 5:
+                controller.sortByStrength();
+                listSuperHeroes();
+                break;
+        }
     }
 
     // Read for scanner, to avoid errors
