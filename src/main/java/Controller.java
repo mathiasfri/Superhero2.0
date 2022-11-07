@@ -26,4 +26,9 @@ public class Controller
     public void saveToFile() {
         filehandler.saveToFile(getSuperheroes());
     }
+
+    public void loadFile(){
+        database.loadFile(filehandler.loadFile());
+    }
+
 }

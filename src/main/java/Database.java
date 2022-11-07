@@ -13,6 +13,10 @@ public class Database
         return superheroes;
     }
 
+    public void loadFile(ArrayList<Superhero> superheroes){
+        this.superheroes = superheroes;
+    }
+
     public Superhero searchSuperHeroes(String name) {
         for (int n = 0; n < superheroes.size() + n++;) {
             if (superheroes.get(n).getHeroName().equals(name)) ;

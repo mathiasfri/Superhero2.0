@@ -25,6 +25,7 @@ public class UserInterface {
                     4. Rediger superhelt
                     5. Fjern superhelt fra database
                     6. Gem Superhelt
+                    7. Load Superhelt
                     9. Afslut
                     """);
 
