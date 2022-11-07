@@ -39,6 +39,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
@@ -55,6 +57,7 @@
       <workItem from="1667208384037" duration="1231000" />
       <workItem from="1667376123309" duration="4135000" />
       <workItem from="1667809586910" duration="924000" />
+      <workItem from="1667815771705" duration="716000" />
     </task>
     <task id="LOCAL-00001" summary="Hjælpe - metoder til indlæsning af integer og double">
       <created>1667212125003</created>
