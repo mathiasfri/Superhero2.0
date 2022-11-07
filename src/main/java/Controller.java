@@ -36,22 +36,22 @@ public class Controller {
     }
 
     public void sortByRealName() {
-        Collections.sort(filehandler.loadFile(), new RealNameComparator());
+        Collections.sort(getSuperheroes(), new RealNameComparator());
     }
 
     public void sortByHeroName() {
-        Collections.sort(filehandler.loadFile(), new HeroNameComparator());
+        Collections.sort(getSuperheroes(), new HeroNameComparator());
     }
 
     public void sortByAge() {
-        Collections.sort(filehandler.loadFile(), new AgeComparator());
+        Collections.sort(getSuperheroes(), new AgeComparator());
     }
 
     public void sortBySuperpowers() {
-        Collections.sort(filehandler.loadFile(), new SuperpowerComparator());
+        Collections.sort(getSuperheroes(), new SuperpowerComparator());
     }
 
     public void sortByStrength() {
-        Collections.sort(filehandler.loadFile(), new StrengthComparator());
+        Collections.sort(getSuperheroes(), new StrengthComparator());
     }
 }
