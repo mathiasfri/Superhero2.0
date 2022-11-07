@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class UserInterface {
     private Scanner sc;
     private Controller controller;
-    private int menuInput;
     private String superheroSearch;
 
     public UserInterface() {

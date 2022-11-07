@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69092e23-32c9-45c9-892f-c1d15be01b99" name="Changes" comment="Duplicate method indført">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="69092e23-32c9-45c9-892f-c1d15be01b99" name="Changes" comment="findHero sat i database + interface">
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Filehandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Filehandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Superhero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Superhero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +16,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -39,8 +38,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -55,7 +53,6 @@
       <workItem from="1667208360907" duration="17000" />
       <workItem from="1667208384037" duration="1231000" />
       <workItem from="1667376123309" duration="4135000" />
-      <workItem from="1667809586910" duration="924000" />
     </task>
     <task id="LOCAL-00001" summary="Hjælpe - metoder til indlæsning af integer og double">
       <created>1667212125003</created>
@@ -91,8 +88,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Hjælpe - metoder til indlæsning af integer og double" />
     <MESSAGE value="findHero sat i database + interface" />
-    <MESSAGE value="Duplicate method indført" />
-    <option name="LAST_COMMIT_MESSAGE" value="Duplicate method indført" />
+    <option name="LAST_COMMIT_MESSAGE" value="findHero sat i database + interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
