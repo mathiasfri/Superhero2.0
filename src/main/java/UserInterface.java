@@ -198,8 +198,18 @@ public class UserInterface {
             System.out.println(i++ + ": \n" + superhero);
         }
     }
-    public void caseSaveSuperhero() {
-        controller.saveToFile();
+
+    public void caseSaveSuperhero(ArrayList<Superhero> superheroes) {
+             Scanner sc = new Scanner(System.in);
+
+            for(Superhero superhero: superheroes) {
+                String searchWord;
+                searchWord = sc.nextLine();
+
+                if (superhero.getHeroName().contains(searchWord) || superhero.getRealName().contains(searchWord)
+                        || superhero.getSuperpower().contains(searchWord)) {
+                }
+            }
     }
 
     public void caseloadFile() {
@@ -208,26 +218,26 @@ public class UserInterface {
 
     public void editSuperhero() {
         String superheroEdit = sc.nextLine();
-        ArrayList<Superhero> sortedArray = new ArrayList<>();
+        ArrayList<Superhero> array = new ArrayList<>();
 
         int i = 1;
 
         for (Superhero superhero : controller.getSuperheroes()) {
             if (superhero.getHeroName().contains(superheroEdit)) {
-                sortedArray.add(superhero);
+                array.add(superhero);
             } else {
                 System.out.println("Der findes ingen superhelte i databasen med dette navn.\n");
             }
         }
 
-        for (Superhero sa : sortedArray) {
+        for (Superhero sa : array) {
             System.out.println(i++ + ": \n" + sa);
         }
 
-        if (!sortedArray.isEmpty()) {
+        if (!array.isEmpty()) {
             System.out.println("Skriv nummeret på den superhelt du vil redigere: \n");
             String editNumber = Integer.toString(sc.nextInt());
-            Superhero superHeroEdit = sortedArray.get(Integer.parseInt(editNumber) - 1);
+            Superhero superHeroEdit = array.get(Integer.parseInt(editNumber) - 1);
 
             System.out.println("Redigerer følgende superhelt: \n\n" + superHeroEdit);
             System.out.println("Skriv ny information og tryk ENTER. Hvis du ikke vil redigere, tryk ENTER.");

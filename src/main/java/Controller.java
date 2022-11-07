@@ -5,6 +5,7 @@ public class Controller
 {
     private Database database;
     private Filehandler filehandler;
+    private boolean dataEdited = false;
     public Controller()
     {
         filehandler = new Filehandler();
@@ -17,6 +18,7 @@ public class Controller
     }
 
     public void addSuperhero(String heroName, String realName, String superpower, int age, double strength){
+        dataEdited = true;
         database.addSuperhero(heroName, realName, superpower, age, strength);
     }
     public Superhero findSuperhero(String superheroSearch)
@@ -25,6 +27,7 @@ public class Controller
     }
 
     public void saveToFile() {
+        if (dataEdited)
         filehandler.saveToFile(getSuperheroes());
     }
 

@@ -6,16 +6,21 @@ import java.util.Scanner;
 
 public class Filehandler {
     private File file = new File("Superhero.csv");
-    Boolean duplicate;
+    private boolean duplicate;
 
+
+    // Duplicate funktion på et andet tidspunkt
+    /*
+    if (duplicate = true) {
+        //inputAlreadyThere(superheroes);
+        superheroes.size();
+        System.out.println("This already exists in the database");
+
+    } */
     public void saveToFile(ArrayList<Superhero> superheroes) {
-        try{
-            if (duplicate = true) {
-                inputAlreadyThere(superheroes);
-                System.out.println("This already exists in the database");
+        try {
 
-            }
-            else {
+            {
                 for (Superhero superhero : superheroes) {
                     PrintStream printStream = new PrintStream(file);
                     printStream.println(superhero.getHeroName() + ',' +
@@ -27,13 +32,14 @@ public class Filehandler {
                 }
 
             }
-        }catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
         }
     }
-public void inputAlreadyThere(ArrayList<Superhero> superheroes) {
+// Duplicate funktion
+    public void inputAlreadyThere(ArrayList<Superhero> superheroes) {
         Scanner sc = new Scanner(System.in);
 
-        for(Superhero superhero: superheroes) {
+        for (Superhero superhero : superheroes) {
             String searchWord;
             searchWord = sc.nextLine();
 
@@ -44,10 +50,11 @@ public void inputAlreadyThere(ArrayList<Superhero> superheroes) {
 
         }
 
+    }
 }
 
-
-    public ArrayList<Superhero> loadFile(){
+//TODO Startprogram , automatisk loadfile / Overskriver vis lavet ændringer
+    /*public ArrayList<Superhero> loadFile(){
         ArrayList<Superhero> loadHeroFile = new ArrayList<>();
         try {
             Scanner input = new Scanner(file);
@@ -70,3 +77,4 @@ public void inputAlreadyThere(ArrayList<Superhero> superheroes) {
         }
     }
 }
+     */
