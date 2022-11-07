@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Controller
 {
@@ -31,4 +32,28 @@ public class Controller
         database.loadFile(filehandler.loadFile());
     }
 
+    public void sortByRealName()
+    {
+        Collections.sort(filehandler.loadFile(), new RealNameComparator());
+    }
+
+    public void sortByHeroName()
+    {
+        Collections.sort(filehandler.loadFile(), new HeroNameComparator());
+    }
+
+    public void sortByAge()
+    {
+        Collections.sort(filehandler.loadFile(), new AgeComparator());
+    }
+
+    public void sortBySuperpowers()
+    {
+        Collections.sort(filehandler.loadFile(), new SuperpowerComparator());
+    }
+
+    public void sortByStrength()
+    {
+        Collections.sort(filehandler.loadFile(), new StrengthComparator());
+    }
 }
