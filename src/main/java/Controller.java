@@ -27,6 +27,14 @@ public class Controller {
     public Superhero findSuperhero(String superheroSearch) {
         return database.searchSuperHeroes(superheroSearch);
     }
+    public void caseRemoveSuperhero(String userChoice) {
+        dataEdited = true;
+        database.caseRemoveSuperhero(userChoice);
+    }
+    public void caseRemoveSuperhero1(int userChoice) {
+        dataEdited = true;
+        database.caseRemoveSuperHero1(userChoice);
+    }
 
     public void saveToFile() {
         if(dataEdited){

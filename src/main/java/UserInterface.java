@@ -106,9 +106,9 @@ public class UserInterface {
         System.out.println("Skriv superheltenavnet for den superhelt, som du vil redigere: ");
         superheroSearch = sc.nextLine();
         editSuperhero();
-    }
 
-    public void caseRemoveSuperhero() {
+    }
+   /* public void caseRemoveSuperhero() { // Oprindelige kode for remove superhero.
         System.out.println("\tSøg efter superhelt du vil SLETTE: ");
         String userSearch = readString();
 
@@ -123,6 +123,16 @@ public class UserInterface {
         System.out.println("Skriv tallet for superhelten du vil fjerne");
         int userChoice = readInteger();
         controller.getSuperheroes().remove(userChoice -1);
+
+    } */
+    public void caseRemoveSuperhero() {
+        System.out.println("\tSøg efter superhelt du vil SLETTE: ");
+        String userChoice = readString();
+        controller.caseRemoveSuperhero(userChoice);
+        System.out.println("Skriv tallet for superhelten du vil fjerne");
+        int userChoice1 = readInteger();
+        controller.caseRemoveSuperhero1(userChoice1);
+
 
     }
 
