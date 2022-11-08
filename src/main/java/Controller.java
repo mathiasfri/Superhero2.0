@@ -1,16 +1,20 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class Controller {
     private Database database;
     private Filehandler filehandler;
     private boolean dataEdited = false;
+    private ArrayList<Comparator> listOfComperator;
 
     public Controller() {
         filehandler = new Filehandler();
         database = new Database();
+        listOfComperator = new ArrayList<>();
 
     }
+
 
     public ArrayList<Superhero> getSuperheroes() {
         return database.getSuperheroes();
@@ -45,6 +49,7 @@ public class Controller {
 
     public void sortByAge() {
         Collections.sort(getSuperheroes(), new AgeComparator());
+
     }
 
     public void sortBySuperpowers() {
@@ -54,4 +59,6 @@ public class Controller {
     public void sortByStrength() {
         Collections.sort(getSuperheroes(), new StrengthComparator());
     }
+
+
 }

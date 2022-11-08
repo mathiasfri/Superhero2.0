@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -25,6 +27,7 @@ public class UserInterface {
                     4. Rediger superhelt
                     5. Fjern superhelt fra database
                     6. Sorter superhelt
+                    7. Sorter med to kategorier
                     9. Afslut
                     """);
 
@@ -43,6 +46,9 @@ public class UserInterface {
                     case 6:
                         caseSortSuperheroes();
                         break;
+                    case 7:
+                        caseSortByPrimarySecondary();
+                        break;
                     case 9:
                         controller.saveToFile();
                         System.out.print("Du har nu afsluttet. Farvel.");
@@ -53,6 +59,7 @@ public class UserInterface {
             }
         }
     }
+
 
     public void caseCreateSuperhero() {
         System.out.println("Hvad skal din superhelts heltenavn være?");
@@ -114,6 +121,7 @@ public class UserInterface {
         String svar = sc.nextLine();
     }
 
+
     public void caseSortSuperheroes()
     {
         System.out.println("Hvilken kriterie vil du gerne sortere efter?");
@@ -155,6 +163,70 @@ public class UserInterface {
                 break;
         }
     }
+    public void caseSortByPrimarySecondary() {
+        System.out.println("Hvilket første kriterie vil du gerne sortere efter?");
+        System.out.println("""
+                1. Rigtige navn
+                2. Superhelte navn
+                3. Alder
+                4. Superpower
+                5. Styrke
+                """);
+        int sortChoice = readInteger();
+
+        Comparator primary = null;
+        switch (sortChoice) {
+            case 1:
+                primary = new RealNameComparator();
+                break;
+            case 2:
+                primary = new HeroNameComparator();
+                break;
+            case 3:
+                primary = new AgeComparator();
+                break;
+            case 4:
+                primary = new SuperpowerComparator();
+                break;
+
+            case 5:
+                primary = new StrengthComparator();
+                break;
+        }
+
+        System.out.println("Hvilket andet kriterie vil du gerne sortere efter?");
+        System.out.println("""
+                1. Rigtige navn
+                2. Superhelte navn
+                3. Alder
+                4. Superpower
+                5. Styrke
+                """);
+
+        Comparator secondary = null;
+        int sortChoice2 = readInteger();
+        switch (sortChoice2) {
+            case 1:
+                secondary = new RealNameComparator();
+                break;
+            case 2:
+                secondary = new HeroNameComparator();
+                break;
+            case 3:
+                secondary = new AgeComparator();
+                break;
+            case 4:
+                secondary = new SuperpowerComparator();
+                break;
+            case 5:
+                secondary = new StrengthComparator();
+                break;
+
+        }
+        Collections.sort(controller.getSuperheroes(), primary.thenComparing(secondary));
+        listSuperHeroes();
+
+    }
 
     // Read for scanner, to avoid errors
     public int readInteger() {
@@ -190,17 +262,8 @@ public class UserInterface {
         }
     }
 
-    public void caseSaveSuperhero(ArrayList<Superhero> superheroes) {
-             Scanner sc = new Scanner(System.in);
+    public void caseSaveSuperhero() {
 
-            for(Superhero superhero: superheroes) {
-                String searchWord;
-                searchWord = sc.nextLine();
-
-                if (superhero.getHeroName().contains(searchWord) || superhero.getRealName().contains(searchWord)
-                        || superhero.getSuperpower().contains(searchWord)) {
-                }
-            }
     }
 
 
