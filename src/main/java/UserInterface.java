@@ -33,15 +33,20 @@ public class UserInterface {
 
             try {
                 switch (readInteger()) {
-                    case 1: caseCreateSuperhero();
+                    case 1:
+                        caseCreateSuperhero();
                         break;
-                    case 2: caseListSuperheroes();
+                    case 2:
+                        caseListSuperheroes();
                         break;
-                    case 3: caseSearchSuperhero();
+                    case 3:
+                        caseSearchSuperhero();
                         break;
-                    case 4: caseEditSuperhero();
+                    case 4:
+                        caseEditSuperhero();
                         break;
-                    case 5: caseRemoveSuperhero();
+                    case 5:
+                        caseRemoveSuperhero();
                         break;
                     case 6:
                         caseSortSuperheroes();
@@ -90,7 +95,9 @@ public class UserInterface {
         superheroSearch = sc.nextLine();
         controller.findSuperhero(superheroSearch);
         Superhero værdi = controller.findSuperhero(superheroSearch);
-        System.out.println("Din superhelt er fundet i databasen: ");
+        if(værdi != null) {
+            System.out.println("Din superhelt er fundet i databasen: " + værdi);
+        }
         if (værdi == null) {
             System.out.println("Superhelten findes ikke i databasen");
         }
@@ -104,26 +111,29 @@ public class UserInterface {
 
     public void caseRemoveSuperhero() {
         System.out.println("\tSøg efter superhelt du vil SLETTE: ");
-        String søgeNavn = sc.nextLine();
+        String userSearch = readString();
+
 
         for (int i = 0; i < controller.getSuperheroes().size(); i++) {
-            System.out.println(i + 1 + ":\n" + controller.getSuperheroes().get(i) + "\n");
+            Superhero s = controller.getSuperheroes().get(i);
+            if (s.getHeroName().contains(userSearch)) {
+                System.out.println(((i)+1) + ":\n" + s);
+            }
         }
 
-        if (søgeNavn != null) {
-            System.out.println("\t Vi har fundet din superhelt: \n"
-                    + søgeNavn);
-        } else {
-            System.out.println("\tKunne ikke finde superhelten. \n");
-        }
+        System.out.println("Skriv tallet for superhelten du vil fjerne");
+        int userChoice = readInteger();
+        controller.getSuperheroes().remove(userChoice -1);
 
-        System.out.println("\tVil du slette denne superhero? Indtast ja / nej.");
-        String svar = sc.nextLine();
     }
 
 
-    public void caseSortSuperheroes()
-    {
+
+
+
+
+
+    public void caseSortSuperheroes() {
         System.out.println("Hvilken kriterie vil du gerne sortere efter?");
         System.out.println("""
                 1. Rigtige navn
@@ -135,8 +145,7 @@ public class UserInterface {
 
         int sortChoice = readInteger();
 
-        switch (sortChoice)
-        {
+        switch (sortChoice) {
             case 1:
                 controller.sortByRealName();
                 listSuperHeroes();
@@ -163,6 +172,7 @@ public class UserInterface {
                 break;
         }
     }
+
     public void caseSortByPrimarySecondary() {
         System.out.println("Hvilket første kriterie vil du gerne sortere efter?");
         System.out.println("""
