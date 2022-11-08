@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -27,32 +25,23 @@ public class UserInterface {
                     4. Rediger superhelt
                     5. Fjern superhelt fra database
                     6. Sorter superhelt
-                    7. Sorter med to kategorier
                     9. Afslut
                     """);
 
             try {
                 switch (readInteger()) {
-                    case 1:
-                        caseCreateSuperhero();
+                    case 1: caseCreateSuperhero();
                         break;
-                    case 2:
-                        caseListSuperheroes();
+                    case 2: caseListSuperheroes();
                         break;
-                    case 3:
-                        caseSearchSuperhero();
+                    case 3: caseSearchSuperhero();
                         break;
-                    case 4:
-                        caseEditSuperhero();
+                    case 4: caseEditSuperhero();
                         break;
-                    case 5:
-                        caseRemoveSuperhero();
+                    case 5: caseRemoveSuperhero();
                         break;
                     case 6:
                         caseSortSuperheroes();
-                        break;
-                    case 7:
-                        caseSortByPrimarySecondary();
                         break;
                     case 9:
                         controller.saveToFile();
@@ -64,7 +53,6 @@ public class UserInterface {
             }
         }
     }
-
 
     public void caseCreateSuperhero() {
         System.out.println("Hvad skal din superhelts heltenavn være?");
@@ -95,9 +83,7 @@ public class UserInterface {
         superheroSearch = sc.nextLine();
         controller.findSuperhero(superheroSearch);
         Superhero værdi = controller.findSuperhero(superheroSearch);
-        if(værdi != null) {
-            System.out.println("Din superhelt er fundet i databasen: " + værdi);
-        }
+        System.out.println("Din superhelt er fundet i databasen: ");
         if (værdi == null) {
             System.out.println("Superhelten findes ikke i databasen");
         }
@@ -111,29 +97,25 @@ public class UserInterface {
 
     public void caseRemoveSuperhero() {
         System.out.println("\tSøg efter superhelt du vil SLETTE: ");
-        String userSearch = readString();
-
+        String søgeNavn = sc.nextLine();
 
         for (int i = 0; i < controller.getSuperheroes().size(); i++) {
-            Superhero s = controller.getSuperheroes().get(i);
-            if (s.getHeroName().contains(userSearch)) {
-                System.out.println(((i)+1) + ":\n" + s);
-            }
+            System.out.println(i + 1 + ":\n" + controller.getSuperheroes().get(i) + "\n");
         }
 
-        System.out.println("Skriv tallet for superhelten du vil fjerne");
-        int userChoice = readInteger();
-        controller.getSuperheroes().remove(userChoice -1);
+        if (søgeNavn != null) {
+            System.out.println("\t Vi har fundet din superhelt: \n"
+                    + søgeNavn);
+        } else {
+            System.out.println("\tKunne ikke finde superhelten. \n");
+        }
 
+        System.out.println("\tVil du slette denne superhero? Indtast ja / nej.");
+        String svar = sc.nextLine();
     }
 
-
-
-
-
-
-
-    public void caseSortSuperheroes() {
+    public void caseSortSuperheroes()
+    {
         System.out.println("Hvilken kriterie vil du gerne sortere efter?");
         System.out.println("""
                 1. Rigtige navn
@@ -145,7 +127,8 @@ public class UserInterface {
 
         int sortChoice = readInteger();
 
-        switch (sortChoice) {
+        switch (sortChoice)
+        {
             case 1:
                 controller.sortByRealName();
                 listSuperHeroes();
@@ -171,71 +154,6 @@ public class UserInterface {
                 listSuperHeroes();
                 break;
         }
-    }
-
-    public void caseSortByPrimarySecondary() {
-        System.out.println("Hvilket første kriterie vil du gerne sortere efter?");
-        System.out.println("""
-                1. Rigtige navn
-                2. Superhelte navn
-                3. Alder
-                4. Superpower
-                5. Styrke
-                """);
-        int sortChoice = readInteger();
-
-        Comparator primary = null;
-        switch (sortChoice) {
-            case 1:
-                primary = new RealNameComparator();
-                break;
-            case 2:
-                primary = new HeroNameComparator();
-                break;
-            case 3:
-                primary = new AgeComparator();
-                break;
-            case 4:
-                primary = new SuperpowerComparator();
-                break;
-
-            case 5:
-                primary = new StrengthComparator();
-                break;
-        }
-
-        System.out.println("Hvilket andet kriterie vil du gerne sortere efter?");
-        System.out.println("""
-                1. Rigtige navn
-                2. Superhelte navn
-                3. Alder
-                4. Superpower
-                5. Styrke
-                """);
-
-        Comparator secondary = null;
-        int sortChoice2 = readInteger();
-        switch (sortChoice2) {
-            case 1:
-                secondary = new RealNameComparator();
-                break;
-            case 2:
-                secondary = new HeroNameComparator();
-                break;
-            case 3:
-                secondary = new AgeComparator();
-                break;
-            case 4:
-                secondary = new SuperpowerComparator();
-                break;
-            case 5:
-                secondary = new StrengthComparator();
-                break;
-
-        }
-        Collections.sort(controller.getSuperheroes(), primary.thenComparing(secondary));
-        listSuperHeroes();
-
     }
 
     // Read for scanner, to avoid errors
@@ -272,54 +190,59 @@ public class UserInterface {
         }
     }
 
-    public void caseSaveSuperhero() {
+    public void caseSaveSuperhero(ArrayList<Superhero> superheroes) {
+             Scanner sc = new Scanner(System.in);
 
+            for(Superhero superhero: superheroes) {
+                String searchWord;
+                searchWord = sc.nextLine();
+
+                if (superhero.getHeroName().contains(searchWord) || superhero.getRealName().contains(searchWord)
+                        || superhero.getSuperpower().contains(searchWord)) {
+                }
+            }
     }
 
 
     public void editSuperhero() {
-        String superheroEdit = readString();
-        ArrayList<Superhero> editArray = new ArrayList<>();
+        String superheroEdit = sc.nextLine();
+        ArrayList<Superhero> array = new ArrayList<>();
 
         int i = 1;
 
-        for (Superhero superhero : controller.getSuperheroes())
-        {
-            if (superhero.getHeroName().contains(superheroEdit))
-            {
-                editArray.add(superhero);
+        for (Superhero superhero : controller.getSuperheroes()) {
+            if (superhero.getHeroName().contains(superheroEdit)) {
+                array.add(superhero);
+            } else {
+                System.out.println("Der findes ingen superhelte i databasen med dette navn.\n");
             }
         }
 
-        if (editArray.isEmpty())
-        {
-            System.out.println("Der blev ikke fundet nogle superhelte.");
-        }
-
-        for (Superhero sa : editArray) {
+        for (Superhero sa : array) {
             System.out.println(i++ + ": \n" + sa);
         }
 
-        if (!editArray.isEmpty()) {
+        if (!array.isEmpty()) {
             System.out.println("Skriv nummeret på den superhelt du vil redigere: \n");
-            int editNumber = readInteger();
-            Superhero superHeroEdit = editArray.get(editNumber - 1);
+            String editNumber = Integer.toString(sc.nextInt());
+            Superhero superHeroEdit = array.get(Integer.parseInt(editNumber) - 1);
 
             System.out.println("Redigerer følgende superhelt: \n\n" + superHeroEdit);
             System.out.println("Skriv ny information og tryk ENTER. Hvis du ikke vil redigere, tryk ENTER.");
+            sc.nextLine();
 
             boolean tryAgain = true;
 
             while (tryAgain) {
                 try {
                     System.out.print("Nyt superheltenavn: ");
-                    String newName = readString();
+                    String newName = sc.nextLine();
                     if (!newName.isEmpty()) {
                         superHeroEdit.setHeroName(newName);
                     }
 
                     System.out.print("Det nye rigtige navn på din superhelt: ");
-                    String newRealName = readString();
+                    String newRealName = sc.nextLine();
                     if (!newRealName.isEmpty()) {
                         superHeroEdit.setRealName(newRealName);
                     }
@@ -331,15 +254,15 @@ public class UserInterface {
                     }
 
                     System.out.print("Nye alder på superhelt: ");
-                    int newAge = readInteger();
-                    if (newAge != 0) {
-                        superHeroEdit.setAge(newAge);
+                    String newAge = sc.nextLine();
+                    if (!newAge.isEmpty()) {
+                        superHeroEdit.setAge(Integer.parseInt(newAge));
                     }
 
                     System.out.println("Nye styrke på din superhelt: ");
-                    double newStrength = readDouble();
-                    if (newStrength != 0) {
-                        superHeroEdit.setStrength(newStrength);
+                    String newStrength = sc.nextLine();
+                    if (!newStrength.isEmpty()) {
+                        superHeroEdit.setStrength(Double.parseDouble(newStrength));
                     }
 
                     tryAgain = false;

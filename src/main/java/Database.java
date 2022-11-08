@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Database
-{
+public class Database {
     private ArrayList<Superhero> superheroes = new ArrayList<>();
 
     public void addSuperhero(String heroName, String realName, String superpower, int age, double strength)
@@ -19,9 +18,8 @@ public class Database
     }
 
     public Superhero searchSuperHeroes(String name) {
-        for (int n = 0; n < superheroes.size() + n++;) {
-            if (superheroes.get(n).getHeroName().equals(name)) ;
-            {
+        for (int n = 0; n < superheroes.size(); n++) {
+            if (superheroes.get(n).getHeroName().equals(name)) {
                 return superheroes.get(n);
             }
         }
