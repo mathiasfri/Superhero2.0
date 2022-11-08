@@ -119,7 +119,7 @@ public class UserInterface {
                 System.out.println(((i)+1) + ":\n" + s);
             }
         }
-
+// Forstår ikke helt hvordan det her virker
         System.out.println("Skriv tallet for superhelten du vil fjerne");
         int userChoice = readInteger();
         controller.getSuperheroes().remove(userChoice -1);
@@ -133,7 +133,7 @@ public class UserInterface {
 
 
     public void caseSortSuperheroes() {
-        System.out.println("Hvilken kriterie vil du gerne sortere efter?");
+        System.out.println("Hvilket kriterie vil du gerne sortere efter?");
         System.out.println("""
                 1. Rigtige navn
                 2. Superhelte navn
@@ -272,18 +272,7 @@ public class UserInterface {
         }
     }
 
-    public void caseSaveSuperhero(ArrayList<Superhero> superheroes) {
-             Scanner sc = new Scanner(System.in);
 
-            for(Superhero superhero: superheroes) {
-                String searchWord;
-                searchWord = sc.nextLine();
-
-                if (superhero.getHeroName().contains(searchWord) || superhero.getRealName().contains(searchWord)
-                        || superhero.getSuperpower().contains(searchWord)) {
-                }
-            }
-    }
 
 
     public void editSuperhero() {

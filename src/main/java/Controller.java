@@ -6,12 +6,11 @@ public class Controller {
     private Database database;
     private Filehandler filehandler;
     private boolean dataEdited = false;
-    private ArrayList<Comparator> listOfComperator;
+
 
     public Controller() {
         filehandler = new Filehandler();
         database = new Database();
-        listOfComperator = new ArrayList<>();
 
     }
 
