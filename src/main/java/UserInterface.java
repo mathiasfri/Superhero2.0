@@ -278,44 +278,48 @@ public class UserInterface {
 
 
     public void editSuperhero() {
-        String superheroEdit = sc.nextLine();
-        ArrayList<Superhero> array = new ArrayList<>();
+        String superheroEdit = readString();
+        ArrayList<Superhero> editArray = new ArrayList<>();
 
         int i = 1;
 
-        for (Superhero superhero : controller.getSuperheroes()) {
-            if (superhero.getHeroName().contains(superheroEdit)) {
-                array.add(superhero);
-            } else {
-                System.out.println("Der findes ingen superhelte i databasen med dette navn.\n");
+        for (Superhero superhero : controller.getSuperheroes())
+        {
+            if (superhero.getHeroName().contains(superheroEdit))
+            {
+                editArray.add(superhero);
             }
         }
 
-        for (Superhero sa : array) {
+        if (editArray.isEmpty())
+        {
+            System.out.println("Der blev ikke fundet nogle superhelte.");
+        }
+
+        for (Superhero sa : editArray) {
             System.out.println(i++ + ": \n" + sa);
         }
 
-        if (!array.isEmpty()) {
+        if (!editArray.isEmpty()) {
             System.out.println("Skriv nummeret på den superhelt du vil redigere: \n");
-            String editNumber = Integer.toString(sc.nextInt());
-            Superhero superHeroEdit = array.get(Integer.parseInt(editNumber) - 1);
+            int editNumber = readInteger();
+            Superhero superHeroEdit = editArray.get(editNumber - 1);
 
             System.out.println("Redigerer følgende superhelt: \n\n" + superHeroEdit);
             System.out.println("Skriv ny information og tryk ENTER. Hvis du ikke vil redigere, tryk ENTER.");
-            sc.nextLine();
 
             boolean tryAgain = true;
 
             while (tryAgain) {
                 try {
                     System.out.print("Nyt superheltenavn: ");
-                    String newName = sc.nextLine();
+                    String newName = readString();
                     if (!newName.isEmpty()) {
                         superHeroEdit.setHeroName(newName);
                     }
 
                     System.out.print("Det nye rigtige navn på din superhelt: ");
-                    String newRealName = sc.nextLine();
+                    String newRealName = readString();
                     if (!newRealName.isEmpty()) {
                         superHeroEdit.setRealName(newRealName);
                     }
@@ -327,15 +331,15 @@ public class UserInterface {
                     }
 
                     System.out.print("Nye alder på superhelt: ");
-                    String newAge = sc.nextLine();
-                    if (!newAge.isEmpty()) {
-                        superHeroEdit.setAge(Integer.parseInt(newAge));
+                    int newAge = readInteger();
+                    if (newAge != 0) {
+                        superHeroEdit.setAge(newAge);
                     }
 
                     System.out.println("Nye styrke på din superhelt: ");
-                    String newStrength = sc.nextLine();
-                    if (!newStrength.isEmpty()) {
-                        superHeroEdit.setStrength(Double.parseDouble(newStrength));
+                    double newStrength = readDouble();
+                    if (newStrength != 0) {
+                        superHeroEdit.setStrength(newStrength);
                     }
 
                     tryAgain = false;
