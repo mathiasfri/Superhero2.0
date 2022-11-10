@@ -34,16 +34,4 @@ class FilehandlerTest {
         assertNotEquals(t1,t2);
     }
 
-    //Anden metode til SaveFile, ved brug af lastModified()
-     /*@Test
-    void saveFile(){
-        long t1 = file.lastModified();
-        for (int i = 0; i < 1000; i++){
-            helte.getSuperheroes();
-            helte.searchSuperHeroes("heroName");
-        }
-        long t2 = file.lastModified();
-        assertEquals(t1,t2);
-    }*/
-
 }
