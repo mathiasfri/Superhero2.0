@@ -274,8 +274,6 @@ public class UserInterface
     // Metoder
     public void listSuperHeroes()
     {
-
-
         for (Superhero superhero : controller.getSuperheroes())
         {
             System.out.println(superhero);

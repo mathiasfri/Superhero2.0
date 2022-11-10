@@ -65,7 +65,6 @@ public class Database
     {
         Collections.sort(getSuperheroes(), new AgeComparator());
         return null;
-
     }
 
     public Database sortBySuperpowers()
