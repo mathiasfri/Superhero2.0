@@ -6,66 +6,92 @@ import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DatabaseTest {
+class DatabaseTest
+{
     Database helte;
     Controller controller;
     UserInterface ui;
 
     @BeforeEach
-    void addSuperhero() {
+    void addSuperhero()
+    {
         ui = new UserInterface();
         helte = new Database();
         controller = new Controller();
 
         helte.addSuperhero("Malou", "Super Malou", "Spiser meget", 1999, 193.943);
         helte.addSuperhero("Hund", "Super Hund", "Flyvende", 1756, 34.567);
-
     }
 
 
     @Test
-    public void testFejlFindeSuper() {
+    public void testFejlFindeSuper()
+    {
         Superhero superhero = helte.searchSuperHeroes("Mango");
 
         assertNotEquals(helte.getSuperheroes().get(0), superhero);
     }
 
     @Test
-    void searchSuperHeroes() {
+    void searchSuperHeroes()
+    {
 
         Superhero superhero = helte.searchSuperHeroes("Malou");
 
         assertEquals(helte.getSuperheroes().get(0), superhero);
     }
+
     @Test
-    public void testAgeComparator() {
+    void testRemoveSuperhero()
+    {
+        helte.caseRemoveSuperHero1(2);
+        helte.caseRemoveSuperHero1(1);
+
+        int actual = helte.getSuperheroes().size();
+        int expected = 0;
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testAgeComparator()
+    {
         helte.sortByAge();
         int expectedAge = 1756;
         assertEquals(expectedAge, helte.getSuperheroes().get(0).getAge());
 
     }
+
     @Test
-    public void testHeroNameComparator() {
+    public void testHeroNameComparator()
+    {
         helte.sortByHeroName();
         String expectedName = "Hund";
         assertEquals(expectedName, helte.getSuperheroes().get(0).getHeroName());
     }
+
     @Test
-    public void testRealNameComparator() {
+    public void testRealNameComparator()
+    {
         helte.sortByRealName();
         String expectedRealName = "Super Hund";
         assertEquals(expectedRealName, helte.getSuperheroes().get(0).getRealName());
     }
+
     @Test
-public void testSuperPowerComparator() {
+    public void testSuperPowerComparator()
+    {
         helte.sortBySuperpowers();
-        String expecSuperPower = "Flyvende";
-        assertEquals(expecSuperPower, helte.getSuperheroes().get(0).getSuperpower());
-}
-@Test
-public void testStrengthComparator() {
+        String expectedSuperPower = "Flyvende";
+        assertEquals(expectedSuperPower, helte.getSuperheroes().get(0).getSuperpower());
+    }
+
+    @Test
+    public void testStrengthComparator()
+    {
         helte.sortByStrength();
         double expectedStrength = 34.567;
         assertEquals(expectedStrength, helte.getSuperheroes().get(0).getStrength());
-}
+    }
+
 }

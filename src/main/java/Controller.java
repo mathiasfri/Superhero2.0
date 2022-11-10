@@ -3,70 +3,83 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Controller {
+public class Controller
+{
     private Database database;
     private Filehandler filehandler;
     private boolean dataEdited = false;
 
 
-    public Controller() {
+    public Controller()
+    {
         filehandler = new Filehandler();
         database = new Database();
-
     }
 
 
-    public ArrayList<Superhero> getSuperheroes() {
+    public ArrayList<Superhero> getSuperheroes()
+    {
         return database.getSuperheroes();
     }
 
-    public void addSuperhero(String heroName, String realName, String superpower, int age, double strength) {
+    public void addSuperhero(String heroName, String realName, String superpower, int age, double strength)
+    {
         dataEdited = true;
         database.addSuperhero(heroName, realName, superpower, age, strength);
     }
 
-    public Superhero findSuperhero(String superheroSearch) {
+    public Superhero findSuperhero(String superheroSearch)
+    {
         return database.searchSuperHeroes(superheroSearch);
     }
-    public void caseRemoveSuperhero(String userChoice) {
+
+    public void caseRemoveSuperhero(String userChoice)
+    {
         dataEdited = true;
         database.caseRemoveSuperhero(userChoice);
     }
-    public void caseRemoveSuperhero1(int userChoice) {
+
+    public void caseRemoveSuperhero1(int userChoice)
+    {
         dataEdited = true;
         database.caseRemoveSuperHero1(userChoice);
     }
 
-    public void saveToFile() {
-        if(dataEdited){
+    public void saveToFile()
+    {
+        if (dataEdited)
+        {
             filehandler.saveToFile(getSuperheroes());
         }
     }
 
-    public void loadFile() {
+    public void loadFile()
+    {
         database.loadFile(filehandler.loadFile());
     }
 
-    public Database sortByRealName() {
-       return database.sortByRealName();
+    public Database sortByRealName()
+    {
+        return database.sortByRealName();
     }
 
-    public Database sortByHeroName() {
+    public Database sortByHeroName()
+    {
         return database.sortByHeroName();
     }
 
-    public Database sortByAge() {
+    public Database sortByAge()
+    {
         return database.sortByAge();
-
     }
 
-    public Database sortBySuperpowers() {
+    public Database sortBySuperpowers()
+    {
         return database.sortBySuperpowers();
     }
 
-    public Database sortByStrength() {
+    public Database sortByStrength()
+    {
         return database.sortByStrength();
     }
-
-
 }
