@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69092e23-32c9-45c9-892f-c1d15be01b99" name="Changes" comment="Edit superhero er rettet">
+    <list default="true" id="69092e23-32c9-45c9-892f-c1d15be01b99" name="Changes" comment="Flyttet remove funktionen til databasen (Rasmus mente at den klart skulle ligge der). Opdelte funktionen i to metoder, så det kan virke i UserInterface. Det oprindelige kode er udkommenteret.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
@@ -39,10 +40,35 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
 }</component>
+  <component name="RunManager" selected="JUnit.FilehandlerTest">
+    <configuration name="DatabaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Superhero2.0" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FilehandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Superhero2.0" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FilehandlerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.FilehandlerTest" />
+        <item itemvalue="JUnit.DatabaseTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -91,14 +117,7 @@
       <option name="project" value="LOCAL" />
       <updated>1667924198328</updated>
     </task>
-    <task id="LOCAL-00006" summary="Flyttet remove funktionen til databasen (Rasmus mente at den klart skulle ligge der). Opdelte funktionen i to metoder, så det kan virke i UserInterface. Det oprindelige kode er udkommenteret.">
-      <created>1667926708108</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1667926708108</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,15 +139,14 @@
     <MESSAGE value="findHero sat i database + interface" />
     <MESSAGE value="Added gitignore" />
     <MESSAGE value="Ændret småfejl og kigget lidt på koden." />
-    <MESSAGE value="Flyttet remove funktionen til databasen (Rasmus mente at den klart skulle ligge der). Opdelte funktionen i to metoder, så det kan virke i UserInterface. Det oprindelige kode er udkommenteret." />
-    <option name="LAST_COMMIT_MESSAGE" value="Flyttet remove funktionen til databasen (Rasmus mente at den klart skulle ligge der). Opdelte funktionen i to metoder, så det kan virke i UserInterface. Det oprindelige kode er udkommenteret." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ændret småfejl og kigget lidt på koden." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/UserInterface.java</url>
-          <line>147</line>
+          <line>139</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
