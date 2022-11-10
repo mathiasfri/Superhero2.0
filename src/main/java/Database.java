@@ -40,30 +40,28 @@ public class Database {
         superheroes.remove(userSearch - 1);
 
     }
-    public Database sortByRealName() {
+    public void sortByRealName() {
         Collections.sort(getSuperheroes(), new RealNameComparator());
-        return null;
+
     }
 
-    public Database sortByHeroName() {
+    public void sortByHeroName() {
         Collections.sort(getSuperheroes(), new HeroNameComparator());
-        return null;
+
     }
 
-    public Database sortByAge() {
+    public void sortByAge() {
         Collections.sort(getSuperheroes(), new AgeComparator());
-        return null;
+
 
     }
 
-    public Database sortBySuperpowers() {
+    public void sortBySuperpowers() {
         Collections.sort(getSuperheroes(), new SuperpowerComparator());
-        return null;
     }
 
-    public Database sortByStrength() {
+    public void sortByStrength() {
         Collections.sort(getSuperheroes(), new StrengthComparator());
-        return null;
     }
 
 }

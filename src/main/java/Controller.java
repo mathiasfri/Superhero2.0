@@ -47,25 +47,25 @@ public class Controller {
         database.loadFile(filehandler.loadFile());
     }
 
-    public Database sortByRealName() {
-       return database.sortByRealName();
+    public void sortByRealName() {
+       database.sortByRealName();
     }
 
-    public Database sortByHeroName() {
-        return database.sortByHeroName();
+    public void sortByHeroName() {
+        database.sortByHeroName();
     }
 
-    public Database sortByAge() {
-        return database.sortByAge();
+    public void sortByAge() {
+        database.sortByAge();
 
     }
 
-    public Database sortBySuperpowers() {
-        return database.sortBySuperpowers();
+    public void sortBySuperpowers() {
+        database.sortBySuperpowers();
     }
 
-    public Database sortByStrength() {
-        return database.sortByStrength();
+    public void sortByStrength() {
+        database.sortByStrength();
     }
 
 
