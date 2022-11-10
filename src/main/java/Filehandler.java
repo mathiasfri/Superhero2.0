@@ -45,6 +45,9 @@ public class Filehandler {
             throw new RuntimeException(e);
         }
     }
+    public File getFile(){
+        return file;
+    }
 }
 
 //TODO Startprogram , automatisk loadfile / Overskriver vis lavet ændringer
