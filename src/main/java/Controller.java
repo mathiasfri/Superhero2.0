@@ -1,3 +1,4 @@
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -46,25 +47,25 @@ public class Controller {
         database.loadFile(filehandler.loadFile());
     }
 
-    public void sortByRealName() {
-        Collections.sort(getSuperheroes(), new RealNameComparator());
+    public Database sortByRealName() {
+       return database.sortByRealName();
     }
 
-    public void sortByHeroName() {
-        Collections.sort(getSuperheroes(), new HeroNameComparator());
+    public Database sortByHeroName() {
+        return database.sortByHeroName();
     }
 
-    public void sortByAge() {
-        Collections.sort(getSuperheroes(), new AgeComparator());
+    public Database sortByAge() {
+        return database.sortByAge();
 
     }
 
-    public void sortBySuperpowers() {
-        Collections.sort(getSuperheroes(), new SuperpowerComparator());
+    public Database sortBySuperpowers() {
+        return database.sortBySuperpowers();
     }
 
-    public void sortByStrength() {
-        Collections.sort(getSuperheroes(), new StrengthComparator());
+    public Database sortByStrength() {
+        return database.sortByStrength();
     }
 
 

@@ -33,10 +33,37 @@ public class Database {
             }
         }
 
-        }
+    }
+
     public void caseRemoveSuperHero1(int userSearch) {
 
         superheroes.remove(userSearch - 1);
 
     }
+    public Database sortByRealName() {
+        Collections.sort(getSuperheroes(), new RealNameComparator());
+        return null;
+    }
+
+    public Database sortByHeroName() {
+        Collections.sort(getSuperheroes(), new HeroNameComparator());
+        return null;
+    }
+
+    public Database sortByAge() {
+        Collections.sort(getSuperheroes(), new AgeComparator());
+        return null;
+
+    }
+
+    public Database sortBySuperpowers() {
+        Collections.sort(getSuperheroes(), new SuperpowerComparator());
+        return null;
+    }
+
+    public Database sortByStrength() {
+        Collections.sort(getSuperheroes(), new StrengthComparator());
+        return null;
+    }
+
 }

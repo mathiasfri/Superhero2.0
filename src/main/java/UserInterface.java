@@ -91,7 +91,7 @@ public class UserInterface {
 
     public void caseSearchSuperhero() {
         System.out.println("Skriv dit søgekriterie for din superhelt: ");
-        superheroSearch = sc.nextLine();
+        superheroSearch = readString();
         controller.findSuperhero(superheroSearch);
         Superhero værdi = controller.findSuperhero(superheroSearch);
         if(værdi != null) {
